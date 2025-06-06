@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eid Mubarak – From Sajid</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b);
+      color: #f1c40f;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding: 50px;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 3em;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #f1c40f; }
+      to { text-shadow: 0 0 30px #f39c12; }
+    }
+    .goat {
+      font-size: 5em;
+      margin: 20px 0;
+    }
+    .msg {
+      font-size: 1.3em;
+      max-width: 600px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+    }
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 20px;
+      width: 250px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      background-color: #f1c40f;
+      color: #0d1b2a;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #f39c12;
+    }
+
+    /* Animated stars background */
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: transparent url('https://cdn.pixabay.com/photo/2016/11/29/09/32/stars-1867616_1280.png') repeat;
+      animation: starsMove 100s linear infinite;
+      opacity: 0.2;
+    }
+
+    @keyframes starsMove {
+      from { background-position: 0 0; }
+      to { background-position: -10000px 5000px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <h1>🌙 Eid-ul-Adha Mubarak!</h1>
+  <div class="goat">🐐</div>
+
+  <input type="text" id="nameInput" placeholder="Enter your name...">
+  <br>
+  <button onclick="showWish()">Get Your Wish 🎁</button>
+
+  <p class="msg" id="wishMessage"></p>
+
+  <audio controls autoplay hidden loop>
+    <source src="https://www.islamcan.com/audio/adhan/azan1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function showWish() {
+      const name = document.getElementById('nameInput').value.trim();
+      const message = name 
+        ? `Dear <strong>${name}</strong>,<br>May this Eid bring peace, joy, and endless blessings to you and your family. <br> With love and duas – <strong>Sajid</strong>`
+        : "Please enter your name to receive your personalized Eid wish.";
+      document.getElementById('wishMessage').innerHTML = message;
+    }
+  </script>
+</body>
+</html>
